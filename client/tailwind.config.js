@@ -2,7 +2,13 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sora: ["Sora", "sans-serif"],
+        worksans: ["Work Sans", "sans-serif"],
+        black: ["Black Ops One", "cursive"],
+      },
+    },
   },
   plugins: [],
 };
