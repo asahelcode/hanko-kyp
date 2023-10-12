@@ -1,13 +1,10 @@
-import { Icon } from "semantic-ui-react";
+import Logo from "../../assets/images/okyp.jpg";
 
 const Header = () => {
   return (
-    <div className="flex justify-between items-center border-b-2 border-gray-50 px-8 py-8 z-20 bg-transparent">
+    <div className="flex justify-between items-center border-b-2 border-gray-50 px-8 py-6 z-20 bg-white  bg-opacity-25 w-full">
       <div className="flex items-center justify-center">
-        <Icon name="soccer" size="big" color="grey" />
-        <span className="text-4xl tracking-widest font-bold font-sora">
-          K<span className="text-4xl text-gray-500 font-worksans">Y</span>P
-        </span>
+        <img src={Logo} alt="" className="w-24 h-24 object-cover rounded-full"/>
       </div>
       <div>
         <ul className="text-gray-600 hidden justify-center space-x-6 font-sora font-bold text-lg">

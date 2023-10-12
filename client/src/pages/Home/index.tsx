@@ -1,13 +1,11 @@
-import { Header } from "../../components";
-import Carousel from "../../components/Carousel";
+import { Header, Carousel, CTA } from "../../components";
 
 const Home = () => {
   return (
     <>
-      <div className="relative">
         <Header />
         <Carousel />
-      </div>
+        <CTA />
     </>
   );
 };
