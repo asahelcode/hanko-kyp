@@ -1,11 +1,10 @@
-import { Header, Carousel, CTA } from "../../components";
+import { Header, Carousel } from "../../components";
 
 const Home = () => {
   return (
     <>
         <Header />
         <Carousel />
-        <CTA />
     </>
   );
 };

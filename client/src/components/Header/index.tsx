@@ -2,7 +2,7 @@ import Logo from "../../assets/images/okyp.jpg";
 
 const Header = () => {
   return (
-    <div className="flex justify-between items-center border-b-2 border-gray-50 px-8 py-6 z-20 bg-white  bg-opacity-25 w-full">
+    <div className="flex justify-between items-center border-b-2 border-gray-50 px-8 py-6 z-20 bg-white  bg-opacity-25 fixed w-full">
       <div className="flex items-center justify-center">
         <img src={Logo} alt="" className="w-24 h-24 object-cover rounded-full"/>
       </div>
