@@ -5,8 +5,9 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LogoutBtn from "./components/Logout/index.tsx";
 import Login from "./components/Login/index.tsx";
-import { Home } from "./pages/index.ts";
+import { Home, League } from "./pages/index.ts";
 import "semantic-ui-css/semantic.min.css";
+import { Header, Footer } from "./components/index.ts";
 
 const path = createBrowserRouter([
   {
@@ -22,13 +23,15 @@ const path = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/logout",
-    element: <LogoutBtn />,
+    path: "/play",
+    element: <League />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
+    <Header />
     <RouterProvider router={path} />
+    <Footer />
   </React.StrictMode>
 );

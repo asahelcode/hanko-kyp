@@ -1,10 +1,9 @@
-import { Header, Carousel } from "../../components";
+import { Carousel } from "../../components";
 
 const Home = () => {
   return (
     <>
-        <Header />
-        <Carousel />
+      <Carousel />
     </>
   );
 };
