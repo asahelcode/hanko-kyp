@@ -147,7 +147,7 @@ const Play = () => {
           playGame();
           setProgress(50);
         }
-      }, 500);
+      }, 300);
       return () => {
         clearInterval(interval);
       };
