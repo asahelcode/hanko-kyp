@@ -9,6 +9,15 @@ Welcome to the Soccer Player Identification Game! This web application allows us
 - Authentication with Hanko: The application uses the Hanko authentication system to ensure user security.
 - Player Identification Game: Users receive images and must identify the player's name from a list of options.
 
+## Available League
+- English Premier League
+
+## Coming Soon
+- German Bundesliga
+- Italian Seria A
+- French Ligue 1
+- Spanish La Liga
+
 ## Getting Started
 
 To get started with the Okyp, follow these steps:
