@@ -31,7 +31,7 @@ const Play = () => {
   const [playerOptions, setPlayerOptions] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [playerToDisplay, setPlayerToDisplay] = useState("");
-  const [progress, setProgress] = useState(100);
+  const [progress, setProgress] = useState(50);
   const [loses, setLoses] = useState(0);
 
   const navigate = useNavigate();
@@ -92,7 +92,7 @@ const Play = () => {
     const randomIndices = getRandomIndices(premierPlayer.PremierLeague, 3);
     let playerData;
     setLoading(true);
-    setProgress(100);
+    setProgress(50);
 
     const options = randomIndices.map((index) => {
       return premierPlayer.PremierLeague[index];
