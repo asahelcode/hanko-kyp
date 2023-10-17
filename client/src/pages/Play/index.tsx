@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, MouseEvent } from "react";
 import axios from "axios";
 import premierPlayer from "../../constants/wah.json";
-import { DoorDashFavorite } from "../../components";
+import { DoorDashFavorite, Header } from "../../components";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
@@ -36,7 +36,7 @@ const Play = () => {
 
   const navigate = useNavigate();
 
-  const verifyAnswer = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const verifyAnswer = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const player = (e.target as HTMLButtonElement).value;
     if (player.toLowerCase() == playerToDisplay.toLowerCase()) {
@@ -156,6 +156,7 @@ const Play = () => {
 
   return (
     <>
+      <Header />
       {!start ? (
         <div className="absolute top-0 pt-36 justify-center items-center flex text-3xl flex-col h-full w-full">
           <p className="text-lg font-semibold font-sora">

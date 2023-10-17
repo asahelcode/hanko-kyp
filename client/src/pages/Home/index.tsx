@@ -1,4 +1,4 @@
-import { Carousel } from "../../components";
+import { Carousel, Header } from "../../components";
 import { useNavigate } from "react-router-dom";
 import { Hanko } from "@teamhanko/hanko-elements";
 import { useEffect, useMemo, useState } from "react";
@@ -34,6 +34,7 @@ const Home = () => {
 
   return (
     <>
+      <Header />
       {!isMobile ? (
         <div className="relative flex justify-center items-center">
           <img src={Image} alt="" className="h-screen w-full object-fit" />

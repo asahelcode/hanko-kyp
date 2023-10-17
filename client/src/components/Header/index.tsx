@@ -16,6 +16,7 @@ const Header = () => {
     }
   };
 
+
   useEffect(() => {
     import("@teamhanko/hanko-elements").then(({ Hanko }) =>
       setHanko(new Hanko(hankoApi ?? ""))
@@ -33,20 +34,15 @@ const Header = () => {
           />
         </button>
       </div>
-      {
-        window.location.href === "http://localhost:5173/" ? (
-          ""
-        ) : (
-          <>
-            <button
-              className="border-gray-200 font-sora font-medium border-2 shadow-md rounded-lg bg-yellow-400 p-3 text-black hover:bg-yellow-300 hover:bg-gradient-to-tr hover:to-gray-300 hover:text-white hover:from-gray-800 hover:shadow-inner flex space-x-3 items-center"
-              onClick={logout}
-            >
-              Logout
-            </button>
-          </>
-        )
-      }
+
+      <>
+        <button
+          className="border-gray-200 font-sora font-medium border-2 shadow-md rounded-lg bg-yellow-400 p-3 text-black hover:bg-yellow-300 hover:bg-gradient-to-tr hover:to-gray-300 hover:text-white hover:from-gray-800 hover:shadow-inner flex space-x-3 items-center"
+          onClick={logout}
+        >
+          Logout
+        </button>
+      </>
 
     </div>
   );

@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/Login/index.tsx";
 import { Home, League, Play } from "./pages/index.ts";
 import "semantic-ui-css/semantic.min.css";
-import { Header, Footer } from "./components/index.ts";
+import {  Footer } from "./components/index.ts";
 
 const path = createBrowserRouter([
   {
@@ -33,7 +33,6 @@ const path = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Header />
     <RouterProvider router={path} />
     <Footer />
   </React.StrictMode>
