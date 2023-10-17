@@ -20,6 +20,7 @@ const Home = () => {
   }, [hanko.session, navigate]);
 
   useEffect(() => {
+
     function handleResize() {
       setIsMobile(window.innerWidth <= 768); // Update the state based on the window width
     }

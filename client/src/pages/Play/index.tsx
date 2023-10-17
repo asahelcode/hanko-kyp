@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, ChangeEvent} from "react";
+import { useState, useEffect, useCallback, MouseEvent } from "react";
 import axios from "axios";
 import premierPlayer from "../../constants/wah.json";
 import { DoorDashFavorite } from "../../components";
@@ -36,9 +36,9 @@ const Play = () => {
 
   const navigate = useNavigate();
 
-  const verifyAnswer = (e: ChangeEvent<HTMLInputElement>) => {
+  const verifyAnswer = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    const player = e.target.value;
+    const player = (e.target as HTMLButtonElement).value;
     if (player.toLowerCase() == playerToDisplay.toLowerCase()) {
       toast.success("🦄 You too sabi", {
         position: "top-center",
@@ -52,16 +52,6 @@ const Play = () => {
       });
     } else {
       if (loses == 5) {
-        toast.error("🦄 You lost", {
-          position: "top-center",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
         navigate("/play");
       } else {
         setLoses(loses + 1);
