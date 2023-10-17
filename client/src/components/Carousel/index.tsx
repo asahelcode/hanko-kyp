@@ -19,7 +19,7 @@ const Carousel = () => {
     showStatus: false,
     showThumbs: false,
     swipeable: true,
-    interval: 1000,
+    interval: 2000,
     showIndicators: false,
   };
 
