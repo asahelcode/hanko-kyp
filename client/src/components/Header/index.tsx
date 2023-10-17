@@ -41,7 +41,7 @@ const Header = () => {
         </ul>
       </div> */}
       {
-        window.location.href === "http://localhost:5173/" ? (
+        window.location.href === "https://hanko-kyp-asahelcode.vercel.app/" ? (
           ""
         ) : (
           <>
