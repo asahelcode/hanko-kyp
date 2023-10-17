@@ -2,8 +2,7 @@
     "redirects": [
         {
             "source": "/",
-            "destination": "/home",
-            "statusCode": 302
+            "destination": "https://okyp.vercel.app/"
         }
     ]
 }
