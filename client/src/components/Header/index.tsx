@@ -2,7 +2,7 @@ import Logo from "../../assets/images/okyp.jpg";
 import { useState, useEffect } from "react";
 import { Hanko } from "@teamhanko/hanko-elements";
 
-const Header = () => {
+const Header =  () => {
   const hankoApi = "https://fb2db83e-873b-414d-9659-cc2567b7fec7.hanko.io";
 
   const [hanko, setHanko] = useState<Hanko>();

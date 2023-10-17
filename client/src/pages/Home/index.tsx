@@ -30,6 +30,7 @@ const Home = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+
   }, []);
 
   return (
@@ -38,8 +39,8 @@ const Home = () => {
       {!isMobile ? (
         <div className="relative flex justify-center items-center">
           <img src={Image} alt="" className="h-screen w-full object-fit" />
-          <div className="absolute top-44 w-4/5 flex flex-col  items-start">
-            <p className="text-white font-sora text-5xl w-2/4 text-left tracking-wide leading-2xl">
+          <div className="absolute top-96 w-4/5 flex flex-col  items-start">
+            <p className="text-white font-sora text-5xl w-2/6 text-left tracking-wide leading-5xl">
               Do you really know soccer players?
             </p>
             <button

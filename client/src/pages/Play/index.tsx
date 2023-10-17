@@ -33,6 +33,7 @@ const Play = () => {
   const [playerToDisplay, setPlayerToDisplay] = useState("");
   const [progress, setProgress] = useState(50);
   const [loses, setLoses] = useState(0);
+  const [wins, setWins] = useState(0);
 
   const navigate = useNavigate();
 
@@ -40,6 +41,7 @@ const Play = () => {
     e.preventDefault();
     const player = (e.target as HTMLButtonElement).value;
     if (player.toLowerCase() == playerToDisplay.toLowerCase()) {
+      setWins(wins + 10);
       toast.success("🦄 You too sabi", {
         position: "top-center",
         autoClose: 1000,
