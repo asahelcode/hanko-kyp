@@ -39,7 +39,7 @@ const Home = () => {
         <div className="relative flex justify-center items-center">
           <img src={Image} alt="" className="h-screen w-full object-fit" />
           <div className="absolute top-44 w-4/5 flex flex-col  items-start">
-            <p className="text-white font-sora text-5xl w-2/4 text-left">
+            <p className="text-white font-sora text-5xl w-2/4 text-left tracking-wide leading-2xl">
               Do you really know soccer players?
             </p>
             <button
