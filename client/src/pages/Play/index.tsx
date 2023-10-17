@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, ChangeEvent} from "react";
 import axios from "axios";
 import premierPlayer from "../../constants/wah.json";
 import { DoorDashFavorite } from "../../components";
@@ -36,7 +36,7 @@ const Play = () => {
 
   const navigate = useNavigate();
 
-  const verifyAnswer = (e ) => {
+  const verifyAnswer = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const player = e.target.value;
     if (player.toLowerCase() == playerToDisplay.toLowerCase()) {
@@ -52,7 +52,6 @@ const Play = () => {
       });
     } else {
       if (loses == 5) {
-        navigate("/play");
         toast.error("🦄 You lost", {
           position: "top-center",
           autoClose: 1000,
@@ -63,6 +62,7 @@ const Play = () => {
           progress: undefined,
           theme: "light",
         });
+        navigate("/play");
       } else {
         setLoses(loses + 1);
         toast.error("🦄 Gattaway you", {
@@ -129,7 +129,13 @@ const Play = () => {
 
     setPlayerToDisplay(player);
     setPlayerOptions(shuffle(options));
-  }, [setLoading, setProgress, setPlayerInfo, setPlayerToDisplay, setPlayerOptions]);
+  }, [
+    setLoading,
+    setProgress,
+    setPlayerInfo,
+    setPlayerToDisplay,
+    setPlayerOptions,
+  ]);
 
   useEffect(() => {
     if (start) {
@@ -195,7 +201,7 @@ const Play = () => {
               </>
             )}
           </div>
-          <div className="lg:grid  lg:grid-cols-2 lg:place-items-center justify-start items-center flex text-2xl flex-col h-full w-full space-y-5 mt-5">
+          <div className="lg:grid  lg:grid-cols-2 lg:pr-12 lg:gap-10 lg:space-y-0 justify-start items-center flex text-2xl flex-col h-full w-full space-y-5 mt-5">
             {playerOptions.map((player) => (
               <button
                 className="bg-blue-700 p-5 w-4/5 text-white font-sora shadow-md rounded-md lg:w-full"

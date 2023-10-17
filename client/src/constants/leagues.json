@@ -1,22 +1,27 @@
 [
     {
         "id": "1",
-        "name": "English Premier League"
+        "name": "English Premier League",
+        "enabled": true
     },
     {
         "id": "2",
-        "name": "La Liga"
+        "name": "La Liga",
+        "enabled": false
     },
     {
         "id": "3",
-        "name": "Bundesliga"
+        "name": "Bundesliga",
+        "enabled": false
     },
     {
         "id": "4",
-        "name": "Serie A"
+        "name": "Serie A",
+        "enabled": false
     },
     {
         "id": "5",
-        "name": "Ligue 1"
+        "name": "Ligue 1",
+        "enabled": false
     }
 ]

@@ -6,8 +6,11 @@ import CarouselOne from "../../assets/images/Ellie.jpeg";
 import CarouselFour from "../../assets/images/duel.jpeg";
 import CarouselSix from "../../assets/images/msn.jpeg";
 import CarouselSeven from "../../assets/images/ronaldo.jpeg";
+import { useNavigate } from "react-router-dom";
 
 const Carousel = () => {
+  const navigate = useNavigate();
+
   const CarouselProps = {
     autoPlay: true,
     dynamicHeight: false,
@@ -89,7 +92,10 @@ const Carousel = () => {
         </ReactCarousel>
       </div>
       <div className="absolute text-white text-center flex justify-center items-center w-full bottom-48 font-sora text-3xl space-y-4">
-        <button className="bg-yellow-400 p-3 text-gray-600 px-6 rounded-md">
+        <button
+          className="bg-yellow-400 p-3 text-gray-600 px-6 rounded-md"
+          onClick={() => navigate("/play")}
+        >
           Play
         </button>
       </div>

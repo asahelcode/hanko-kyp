@@ -3,9 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import LogoutBtn from "./components/Logout/index.tsx";
 import Login from "./components/Login/index.tsx";
-import { Home, League } from "./pages/index.ts";
+import { Home, League, Play } from "./pages/index.ts";
 import "semantic-ui-css/semantic.min.css";
 import { Header, Footer } from "./components/index.ts";
 
@@ -25,6 +24,10 @@ const path = createBrowserRouter([
   {
     path: "/play",
     element: <League />,
+  },
+  {
+    path: "/play/:slug",
+    element: <Play />,
   },
 ]);
 
