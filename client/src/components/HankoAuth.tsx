@@ -24,7 +24,7 @@ export default function HankoAuth() {
     register(hankoApi, {
       shadow: true,
       injectStyles: true,
-      enablePasskeys: false,
+      enablePasskeys: true,
       hidePasskeyButtonOnLogin: false,
       translations: undefined,
       translationsLocation: "/i18n",
