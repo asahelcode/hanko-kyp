@@ -176,7 +176,7 @@ const Play = () => {
           <div className="absolute top-0 pt-36 justify-center items-center flex text-3xl flex-col h-full w-full space-y-10">
             <div className="font-sora text-sm text-center">
               <p>You lose when you fail up to five players</p>
-              <p>You also stand a chance to win N500, once you get to ${prizePoint}<br /> by sending a screenshot of the congratulation page</p>
+              <p>You also stand a chance to win N500, once you get to {prizePoint} point<br /> by sending a screenshot of the congratulation page</p>
             </div>
             <button
               className="bg-green-400 p-3 rounded-lg px-10"
