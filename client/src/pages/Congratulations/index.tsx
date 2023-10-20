@@ -7,7 +7,7 @@ import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_APIKEY;
-const prizePoint = 100;
+const prizePoint = 200;
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 

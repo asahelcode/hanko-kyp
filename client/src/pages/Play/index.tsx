@@ -102,7 +102,7 @@ const Play = () => {
     setLoading(true);
     setProgress(50);
 
-    console.log(player);
+    // console.log(player);
 
     const options = randomIndices.map((index) => {
       return premierPlayer.PremierLeague[index];
@@ -113,18 +113,18 @@ const Play = () => {
         `https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=${player}`
       )
       .then((res) => {
-        setLoading(false);
         playerData = res.data.player[0];
       })
       .catch((err) => console.log(err));
-
-    options.push(player);
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    if (!playerData || (playerData as any)?.strSport !== "Soccer") {
-      playGame();
-    } else {
-      setPlayerInfo(playerData);
+      
+      options.push(player);
+      
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      if (!playerData || (playerData as any)?.strSport !== "Soccer") {
+        playGame();
+      } else {
+        setPlayerInfo(playerData);
+        setLoading(false);
     }
 
     setPlayerToDisplay(player);
@@ -138,7 +138,7 @@ const Play = () => {
   ]);
 
   useEffect(() => {
-    if (start) {
+    if (start && !loading) {
       const interval = setInterval(() => {
         setProgress((prevProgress) => prevProgress - 1);
 
@@ -157,7 +157,7 @@ const Play = () => {
           playGame();
           setProgress(50);
         }
-      }, 300);
+      }, 500);
       return () => {
         clearInterval(interval);
       };
@@ -166,7 +166,7 @@ const Play = () => {
 
   if (prizePoint == wins) {
     return (
-      <Congratulations point={wins} />
+      <Congratulations point={prizePoint} />
     )
   } else {
     return (
