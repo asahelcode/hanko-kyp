@@ -4,9 +4,9 @@ import App from "./App.tsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/Login/index.tsx";
-import { Home, League, Play } from "./pages/index.ts";
+import { Home, League, Play, Congratulations } from "./pages/index.ts";
 import "semantic-ui-css/semantic.min.css";
-import {  Footer } from "./components/index.ts";
+import { Footer } from "./components/index.ts";
 
 const path = createBrowserRouter([
   {
@@ -29,6 +29,10 @@ const path = createBrowserRouter([
     path: "/play/:slug",
     element: <Play />,
   },
+  {
+    path: "/congratulations",
+    element: <Congratulations point={0}/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

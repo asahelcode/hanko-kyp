@@ -8,8 +8,9 @@ import Image from "../../assets/images/soccer-players-action-professional-stadiu
 const Home = () => {
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const hankoApi = import.meta.env.VITE_HANKO_API_URL;
   const hanko = useMemo(
-    () => new Hanko("https://fb2db83e-873b-414d-9659-cc2567b7fec7.hanko.io"),
+    () => new Hanko(hankoApi),
     []
   );
 
