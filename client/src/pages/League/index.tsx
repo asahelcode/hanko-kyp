@@ -5,9 +5,10 @@ import { useEffect, useMemo } from "react";
 import { Header } from "../../components";
 
 const League = () => {
+  const hankoApiUrl = import.meta.env.VITE_HANKO_API_URL;
   const navigate = useNavigate();
   const hanko = useMemo(
-    () => new Hanko("https://fb2db83e-873b-414d-9659-cc2567b7fec7.hanko.io"),
+    () => new Hanko(hankoApiUrl),
     []
   );
 

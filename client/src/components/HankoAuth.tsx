@@ -2,7 +2,9 @@ import { useEffect, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { register, Hanko } from "@teamhanko/hanko-elements";
 
-const hankoApi = "https://fb2db83e-873b-414d-9659-cc2567b7fec7.hanko.io";
+const hankoApi = import.meta.env.VITE_HANKO_API_URL;
+
+console.log(hankoApi);
 
 export default function HankoAuth() {
   const navigate = useNavigate();
