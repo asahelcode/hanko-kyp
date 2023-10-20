@@ -5,6 +5,7 @@ import { DoorDashFavorite, Header } from "../../components";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { Congratulations } from "..";
 
 interface Player {
   strPlayer: string;
@@ -34,6 +35,9 @@ const Play = () => {
   const [progress, setProgress] = useState(50);
   const [loses, setLoses] = useState(0);
   const [wins, setWins] = useState(0);
+  let winCounter, loseCounter;
+
+  const prizePoint = 200;
 
   const navigate = useNavigate();
 
@@ -41,8 +45,9 @@ const Play = () => {
     e.preventDefault();
     const player = (e.target as HTMLButtonElement).value;
     if (player.toLowerCase() == playerToDisplay.toLowerCase()) {
-      setWins(wins + 10);
-      toast.success("🦄 You too sabi", {
+      winCounter = wins + 10;
+      setWins(winCounter);
+      toast.success(`🦄 You too sabi - ${winCounter} point`, {
         position: "top-center",
         autoClose: 1000,
         hideProgressBar: false,
@@ -56,7 +61,8 @@ const Play = () => {
       if (loses == 5) {
         navigate("/play");
       } else {
-        setLoses(loses + 1);
+        loseCounter = loses + 1;
+        setLoses(loseCounter);
         toast.error("🦄 Gattaway you", {
           position: "top-center",
           autoClose: 1000,
@@ -95,6 +101,8 @@ const Play = () => {
     let playerData;
     setLoading(true);
     setProgress(50);
+
+    console.log(player);
 
     const options = randomIndices.map((index) => {
       return premierPlayer.PremierLeague[index];
@@ -156,72 +164,79 @@ const Play = () => {
     }
   }, [start, playGame, playerInfo, progress]);
 
-  return (
-    <>
-      <Header />
-      {!start ? (
-        <div className="absolute top-0 pt-36 justify-center items-center flex text-3xl flex-col h-full w-full">
-          <p className="text-lg font-semibold font-sora">
-            You lose when you miss five players name
-          </p>
-          <button
-            className="bg-green-400 p-3 rounded-lg px-10"
-            onClick={() => {
-              setStart(true);
-              playGame();
-            }}
-          >
-            Start
-          </button>
-        </div>
-      ) : (
-        <div className="absolute top-0 pt-36 justify-start items-center flex text-3xl flex-col h-full w-full lg:flex-row lg:justify-center lg:relative">
-          <div className="rounded-md w-full flex justify-center items-center">
-            {loading ? (
-              <DoorDashFavorite />
-            ) : (
-              <>
-                <div className="relative w-full flex justify-center">
-                  <img
-                    src={playerInfo?.strThumb}
-                    alt=""
-                    className="w-4/5  rounded-xl shadow-md object-contain lg:w-3/5 lg:h-2/5"
-                  />
-                  <div className="absolute top-5 left-16 bg-black text-white font-sora p-2 rounded-full lg:left-44">
-                    {progress}
+  if (prizePoint == wins) {
+    return (
+      <Congratulations point={wins} />
+    )
+  } else {
+    return (
+      <>
+        <Header />
+        {!start ? (
+          <div className="absolute top-0 pt-36 justify-center items-center flex text-3xl flex-col h-full w-full space-y-10">
+            <div className="font-sora text-sm text-center">
+              <p>You lose when you fail up to five players</p>
+              <p>You also stand a chance to win N500, once you get to ${prizePoint}<br /> by sending a screenshot of the congratulation page</p>
+            </div>
+            <button
+              className="bg-green-400 p-3 rounded-lg px-10"
+              onClick={() => {
+                setStart(true);
+                playGame();
+              }}
+            >
+              Start
+            </button>
+          </div>
+        ) : (
+          <div className="absolute top-0 pt-36 justify-start items-center flex text-3xl flex-col h-full w-full lg:flex-row lg:justify-center lg:relative">
+            <div className="rounded-md w-full flex justify-center items-center">
+              {loading ? (
+                <DoorDashFavorite />
+              ) : (
+                <>
+                  <div className="relative w-full flex justify-center">
+                    <img
+                      src={playerInfo?.strThumb}
+                      alt=""
+                      className="w-4/5  rounded-xl shadow-md object-contain lg:w-3/5 lg:h-2/5"
+                    />
+                    <div className="absolute top-5 left-16 bg-black text-white font-sora p-2 rounded-full lg:left-44">
+                      {progress}
+                    </div>
                   </div>
-                </div>
-              </>
-            )}
+                </>
+              )}
+            </div>
+            <div className="lg:grid  lg:grid-cols-2 lg:pr-12 lg:gap-10 lg:space-y-0 justify-start items-center flex text-2xl flex-col h-full w-full space-y-5 mt-5">
+              {playerOptions.map((player) => (
+                <button
+                  className="bg-blue-700 p-5 w-4/5 text-white font-sora shadow-md rounded-md lg:w-full"
+                  onClick={verifyAnswer}
+                  value={player}
+                  key={player}
+                >
+                  {player}
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="lg:grid  lg:grid-cols-2 lg:pr-12 lg:gap-10 lg:space-y-0 justify-start items-center flex text-2xl flex-col h-full w-full space-y-5 mt-5">
-            {playerOptions.map((player) => (
-              <button
-                className="bg-blue-700 p-5 w-4/5 text-white font-sora shadow-md rounded-md lg:w-full"
-                onClick={verifyAnswer}
-                value={player}
-                key={player}
-              >
-                {player}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-      <ToastContainer
-        position="top-center"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-    </>
-  );
+        )}
+        <ToastContainer
+          position="top-center"
+          autoClose={1000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </>
+    );
+  }
 };
 
 export default Play;
